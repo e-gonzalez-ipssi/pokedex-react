@@ -3,14 +3,29 @@ import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import PokemonCardButton from './PokemonCardButton'
-import { Paper } from '@mui/material';
+import { CardContent, Paper, Avatar, Grid } from '@mui/material';
+import { colorTypeGradients } from '../helper/color';
 
-export default function PokemonCard ({ name, id }) {
+export default function PokemonCard ({ name, id, types }) {
     const img = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+id+".png";
-    
+
+    let typesClean = []
+
+    types.forEach(type => {
+        typesClean.push(type.pokemon_v2_type.name)
+    });
+
+    let finalColor;
+
+    if (typesClean.length === 2) {
+        finalColor = colorTypeGradients(typesClean[0], typesClean[1], typesClean.length);
+    } else {
+        finalColor = colorTypeGradients(typesClean[0], typesClean[0], typesClean.length);
+    }
+
     return (
         <Paper elevation={10} sx={{ m: 1 }}>
-            <Card sx={{ maxWidth: 345 }}>
+            <Card sx={{ maxWidth: 345, border: 1 }} style={{ background: `linear-gradient(${finalColor[0]}, ${finalColor[1]})` }}>
                 <CardHeader 
                     action={
                         <PokemonCardButton name={name}/>
@@ -21,7 +36,20 @@ export default function PokemonCard ({ name, id }) {
                     height="194"
                     image={img}
                     alt={name}
-                />  
+                />
+                <CardContent>
+                    <Grid container>
+                    {
+                        typesClean.map((type, index) => {
+                            return (
+                                <Grid item xs={6} sx={{}}>
+                                    <Avatar key={index} alt={type} src={"/"+type+".png"} sx={{ bgcolor: finalColor[index], border: 1, boxShadow: 10}} />
+                                </Grid>
+                            )
+                        })
+                    }
+                    </Grid>
+                </CardContent>
             </Card>
         </Paper>
     )

@@ -1,14 +1,20 @@
 import { gql } from '@apollo/client';
 
 export const GET_POKEDEX = gql`
-    query get_pokedex {
-        species: pokemon_v2_pokemonspecies(order_by: {id: asc}) {
+  query get_pokedex {
+    species: pokemon_v2_pokemonspecies(order_by: {id: asc}) {
+      name
+      id
+      pokemon_v2_pokemons {
+        pokemon_v2_pokemontypes {
+          pokemon_v2_type {
             name
-            id
-            is_legendary
-            generation_id
+          }
         }
-    }  
+        name
+      }
+    }
+  }
 `
 
 export const GET_POKEMON = gql`

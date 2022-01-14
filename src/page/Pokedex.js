@@ -34,9 +34,10 @@ export default function Pokedex (props) {
                 <Grid container>
                 {
                     pokedex.map(( pokemon, index ) => {
+                        let types = pokemon.pokemon_v2_pokemons[0].pokemon_v2_pokemontypes
                         return (
                             <Grid item>
-                                <PokemonCard key={index} name={pokemon.name} id={pokemon.id}/>
+                                <PokemonCard key={index} name={pokemon.name} id={pokemon.id} types={types}/>
                             </Grid>
                         )
                     }) 
