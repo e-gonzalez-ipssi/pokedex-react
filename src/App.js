@@ -17,10 +17,10 @@ function App() {
     <ApolloProvider client={client}>
       <BrowserRouter>
           <Routes>
-            <Route path="/" element={Home}/>
-            <Route path="/pokedex" element={Pokedex}/>
-            <Route path="/pokemon/:name" element={Pokemon}/>
-            <Route element={NotFound}/>
+            <Route path="/" element={<Home/>}/>
+            <Route path="/pokedex" element={<Pokedex/>}/>
+            <Route path="/pokemon/:name" element={<Pokemon/>}/>
+            <Route element={<NotFound/>}/>
           </Routes>
       </BrowserRouter>
     </ApolloProvider>

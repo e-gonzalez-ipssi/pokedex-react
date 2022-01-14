@@ -5,7 +5,7 @@ export default function PageTitle ({ title }) {
 
     return (
         <div key="page_title">
-            <Typography variant="h1">{title}</Typography>
+            <Typography variant="h3">{title}</Typography>
         </div>
     )
 }
