@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter , Route, Routes } from "react-router-dom";
 import { ApolloProvider, InMemoryCache, ApolloClient } from "@apollo/client";
+import Menu from './composant/Menu';
 import Home from "./page/Home"
 import NotFound from "./page/NotFound"
 import Pokedex from "./page/Pokedex"
@@ -20,9 +21,10 @@ function App() {
             <Route path="/" element={<Home/>}/>
             <Route path="/pokedex" element={<Pokedex/>}/>
             <Route path="/pokemon/:name" element={<Pokemon/>}/>
-            <Route element={<NotFound/>}/>
+            <Route path="*" element={<NotFound/>}/>
           </Routes>
       </BrowserRouter>
+      <Menu/>
     </ApolloProvider>
     </div>
   );
