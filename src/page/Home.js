@@ -1,6 +1,7 @@
 import React from 'react';
 import PageTitle from '../composant/PageTitle';
 import { Paper, Typography, Link } from '@mui/material'
+
 export default function Home (props) {
     return (
         <div key="home">
