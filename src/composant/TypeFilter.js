@@ -31,11 +31,18 @@ export default function TypeFilter (props) {
     return (
         <div key="typeFilter">
             <Grid container>
-                <Grid item xs={12}>
+                <Grid item xs={6}>
                     <NavLink
                         to="/pokedex"
                     >
                         <Avatar key={0} alt={"all"} sx={{ bgcolor: '#000000', border: 1, boxShadow: 10}}>All</Avatar>
+                    </NavLink>
+                </Grid>
+                <Grid item xs={6}>
+                    <NavLink
+                        to="/pokedex/favorite"
+                    >
+                        <Avatar key={0} alt={"favorite"} sx={{ bgcolor: '#000000', border: 1, boxShadow: 10}}>Fav</Avatar>
                     </NavLink>
                 </Grid>
                 {
