@@ -8,20 +8,19 @@ import { Grid, TextField } from '@mui/material';
 
 export default function Pokedex (props) {
     const { data, error, loading } = useQuery(GET_POKEDEX);
-    const [research, setResearch] = useState("");
     const [filter, setFilter] = useState("");
 
     useEffect(() => {
         const urlParams = new URLSearchParams(window.location.search);
         let search = urlParams.get('search');
 
-        if (search !== "") {
+        if (search !== null) {
             setFilter(search);
         }
 
         return () => {
         }
-    }, [research])
+    }, [])
 
     useEffect(() => {
         window.history.pushState({}, null, "?search="+ filter)
@@ -50,12 +49,9 @@ export default function Pokedex (props) {
     }
 
     if (data) {
-        const pokedex = data.species.filter((pokemon) => {
-            if (pokemon.name.includes(filter)) {
-                return pokemon
-            }
-        })
-            
+        const pokedex = data.species.filter(pokemon =>
+            pokemon.name.includes(filter)
+        );
 
         return (
             <div key="pokedex">
@@ -66,17 +62,14 @@ export default function Pokedex (props) {
                     pokedex.map(( pokemon, index ) => {
                         let types = pokemon.pokemon_v2_pokemons[0].pokemon_v2_pokemontypes
                         return (
-                            <Grid item>
+                            <Grid item key={index}>
                                 <PokemonCard key={index} name={pokemon.name} id={pokemon.id} types={types}/>
                             </Grid>
                         )
                     }) 
                 }
                 </Grid>
-    
             </div>
         )
     }
-
-
 }

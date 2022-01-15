@@ -32,21 +32,12 @@ query get_pokemon ($pokemon: String){
         }
         pokemon_v2_pokemonstats {
           stat_id
+          base_stat
         }
         pokemon_v2_pokemonmoves(limit: 3, order_by: {}) {
-          level
-          id
           pokemon_v2_move {
             id
             name
-            accuracy
-            move_damage_class_id
-            pp
-            power
-            pokemon_v2_type {
-              id
-              name
-            }
           }
         }
         weight
