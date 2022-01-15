@@ -130,5 +130,4 @@ export const    colorTypeGradients = (type1, type2, length) => {
     const finalColor = [color1,color2];
 
     return finalColor;
-
 }
