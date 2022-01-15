@@ -6,10 +6,12 @@ import { GET_POKEMON } from '../api/pokemon';
 import Loader from '../composant/Loader';
 import { Typography } from '@mui/material';
 import { colorTypeGradients } from '../helper/color';
+import { Grid } from "@mui/material";
 import TypeIcons from '../composant/TypeIcons';
 import StatDisplayer from '../composant/StatsContainer';
 import AbilityDisplayer from '../composant/AbilityDisplayer';
 import MoveDisplayer from '../composant/MoveDisplayer';
+import FavIcon from '../composant/FavIcon';
 
 
 export default function Pokemon (props) {
@@ -54,7 +56,15 @@ export default function Pokemon (props) {
         
         return (
             <div key="pokemon" style={{ background: `linear-gradient(${finalColor[0]}, ${finalColor[1]})`, width: 500, margin: "5%" }}>
-                <PageTitle title={pokemon.name+" #"+pokemon.pokemon_species_id} />
+                <Grid container>
+                    <Grid item xs={11}>
+                        <PageTitle title={pokemon.name+" #"+pokemon.pokemon_species_id} />
+                    </Grid>
+                    <Grid item xs={1}>
+                        <FavIcon id={pokemon.pokemon_species_id} />
+                    </Grid>
+                </Grid>
+                
                 
                 <img src={img} alt={pokemon.name} height="500"/>
 

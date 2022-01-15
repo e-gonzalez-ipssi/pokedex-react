@@ -5,6 +5,7 @@ import PokemonCard from '../composant/PokemonCard';
 import PageTitle from '../composant/PageTitle';
 import Loader from '../composant/Loader';
 import { Grid, TextField } from '@mui/material';
+import TypeFilter from '../composant/TypeFilter';
 
 export default function Pokedex (props) {
     const { data, error, loading } = useQuery(GET_POKEDEX);
@@ -56,7 +57,14 @@ export default function Pokedex (props) {
         return (
             <div key="pokedex">
                 <PageTitle title="Pokedex" />
-                <TextField id="filter" label="Filter" variant="outlined" default={filter} onChange={handleChange}/>
+                <Grid container>
+                    <Grid item xs={3}>
+                        <TextField id="filter" label="Filter" variant="outlined" onChange={handleChange}/>
+                    </Grid>
+                    <Grid item xs={9}>
+                        <TypeFilter/>
+                    </Grid>
+                </Grid>
                 <Grid container>
                 {
                     pokedex.map(( pokemon, index ) => {

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { GET_POKEDEX, GET_POKEDEX_BY_TYPE } from '../api/pokemon';
+import { GET_POKEDEX_BY_TYPE } from '../api/pokemon';
 import PokemonCard from '../composant/PokemonCard';
 import PageTitle from '../composant/PageTitle';
 import Loader from '../composant/Loader';
 import { Grid, TextField } from '@mui/material';
+import TypeFilter from '../composant/TypeFilter';
 
 export default function PokedexTypeFiltered (props) {
     const params = useParams();
@@ -59,7 +60,14 @@ export default function PokedexTypeFiltered (props) {
         return (
             <div key="pokedex">
                 <PageTitle title={"Pokedex "+ params.type } />
-                <TextField id="filter" label="Filter" variant="outlined" default={filter} onChange={handleChange}/>
+                <Grid container>
+                    <Grid item xs={3}>
+                        <TextField id="filter" label="Filter" variant="outlined" onChange={handleChange}/>
+                    </Grid>
+                    <Grid item xs={9}>
+                        <TypeFilter/>
+                    </Grid>
+                </Grid>
                 <Grid container>
                 {
                     pokedex.map(( pokemon, index ) => {
@@ -69,7 +77,7 @@ export default function PokedexTypeFiltered (props) {
                                 <PokemonCard key={index} name={pokemon.pokemon_v2_pokemon.name} id={pokemon.pokemon_v2_pokemon.id} types={types}/>
                             </Grid>
                         )
-                    }) 
+                    })
                 }
                 </Grid>
             </div>
