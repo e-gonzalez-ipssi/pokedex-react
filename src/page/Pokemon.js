@@ -3,7 +3,7 @@ import PageTitle from '../composant/PageTitle';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { GET_POKEMON } from '../api/pokemon';
-import CircularProgress from '@mui/material/CircularProgress';
+import Loader from '../composant/Loader';
 
 
 export default function Pokemon (props) {
@@ -22,7 +22,7 @@ export default function Pokemon (props) {
     if (loading) {
         return (
             <div key="pokedex">
-                <CircularProgress />
+                <Loader />
             </div>
         )
     }

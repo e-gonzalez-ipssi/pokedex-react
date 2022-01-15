@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/client';
 import { GET_POKEDEX } from '../api/pokemon';
 import PokemonCard from '../composant/PokemonCard';
 import PageTitle from '../composant/PageTitle';
-import CircularProgress from '@mui/material/CircularProgress';
+import Loader from '../composant/Loader';
 import { Grid } from '@mui/material';
 
 export default function Pokedex (props) {
@@ -20,7 +20,7 @@ export default function Pokedex (props) {
     if (loading) {
         return (
             <div key="pokedex">
-                <CircularProgress />
+                <Loader />
             </div>
         )
     }
