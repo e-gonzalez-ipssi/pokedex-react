@@ -6,6 +6,9 @@ import PokemonCardButton from './PokemonCardButton'
 import { CardContent, Paper, Avatar, Grid } from '@mui/material';
 import { colorTypeGradients } from '../helper/color';
 
+// c'est toute cette partit la qui ralentit l'affichage a mort mais tant pis, c'est a peut pret jolie une fois a l'écran
+// m'en tenez pas trop rigueur j'ai tenter des trucs que je fais pas trop d'habitude
+// et si vous avez des idées pour accelerer le proccessus je vous invites a faire une pull request ou renvoyer un mail :^)
 export default function PokemonCard ({ name, id, types }) {
     const img = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+id+".png";
 
