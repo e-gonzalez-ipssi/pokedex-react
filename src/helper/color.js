@@ -58,7 +58,7 @@ export const    colorTypeGradients = (type1, type2, length) => {
             color1 = "#fdb9e9";
             break;
         default:
-            color1 = "gainsboro";
+            color1 = "https://www.youtube.com/watch?v=Fe566fX9SWw";
             break;
     }
 
@@ -120,7 +120,7 @@ export const    colorTypeGradients = (type1, type2, length) => {
                 color2 = "#fdb9e9";
                 break;
             default:
-                color2 = "gainsboro";
+                color2 = "https://www.youtube.com/watch?v=Fe566fX9SWw";
                 break;
         }
     } else if (length === 1) {

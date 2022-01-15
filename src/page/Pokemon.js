@@ -6,16 +6,16 @@ import { GET_POKEMON } from '../api/pokemon';
 import Loader from '../composant/Loader';
 import { Typography } from '@mui/material';
 import { colorTypeGradients } from '../helper/color';
-import TypeIcons from '../composant/TypeIcon';
+import TypeIcons from '../composant/TypeIcons';
 import StatDisplayer from '../composant/StatsContainer';
 import AbilityDisplayer from '../composant/AbilityDisplayer';
 import MoveDisplayer from '../composant/MoveDisplayer';
 
 
 export default function Pokemon (props) {
-    const name = useParams();
+    const params = useParams();
 
-    const { data, error, loading } = useQuery(GET_POKEMON, {variables: { pokemon: name.name }});
+    const { data, error, loading } = useQuery(GET_POKEMON, {variables: { pokemon: params.name }});
 
     if (error) {
         return (
@@ -34,7 +34,6 @@ export default function Pokemon (props) {
     }
 
     if (data) {
-        console.log(data.pokemon_v2_pokemon[0]);
         const pokemon = data.pokemon_v2_pokemon[0];
 
         const img = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+pokemon.id+".png";
@@ -82,6 +81,4 @@ export default function Pokemon (props) {
             </div>
         )
     }
-
-
 }

@@ -11,7 +11,22 @@ export const GET_POKEDEX = gql`
             name
           }
         }
+      }
+    }
+  }
+`
+
+export const GET_POKEDEX_BY_TYPE = gql`
+  query get_pokedex_by_type ($type: String) {
+    pokemon_v2_pokemontype(where: {pokemon_v2_type: {name: {_eq: $type}}}) {
+      pokemon_v2_pokemon {
         name
+        id
+        pokemon_v2_pokemontypes {
+          pokemon_v2_type {
+            name
+          }
+        }
       }
     }
   }

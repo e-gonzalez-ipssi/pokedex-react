@@ -5,7 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import PokemonCardButton from './PokemonCardButton'
 import { CardContent, Paper } from '@mui/material';
 import { colorTypeGradients } from '../helper/color';
-import TypeIcons from './TypeIcon';
+import TypeIcons from './TypeIcons';
 
 // c'est toute cette partit la qui ralentit l'affichage a mort mais tant pis, c'est a peut pret jolie une fois a l'écran
 // m'en tenez pas trop rigueur j'ai tenter des trucs que je fais pas trop d'habitude

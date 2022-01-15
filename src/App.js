@@ -5,6 +5,7 @@ import Menu from './composant/Menu';
 import Home from "./page/Home"
 import NotFound from "./page/NotFound"
 import Pokedex from "./page/Pokedex"
+import PokedexTypeFiltered from "./page/PokedexTypeFiltered"
 import Pokemon from "./page/Pokemon"
 
 const client = new ApolloClient({
@@ -20,6 +21,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home/>}/>
             <Route path="/pokedex" element={<Pokedex/>}/>
+            <Route path="/pokedex/:type" element={<PokedexTypeFiltered/>}/>
             <Route path="/pokemon/:name" element={<Pokemon/>}/>
             <Route path="*" element={<NotFound/>}/>
           </Routes>
