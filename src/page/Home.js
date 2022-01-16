@@ -1,6 +1,7 @@
 import React from 'react';
 import PageTitle from '../composant/PageTitle';
 import { Paper, Typography, Link } from '@mui/material'
+import ContactForm from '../composant/ContactForm';
 
 export default function Home (props) {
     return (
@@ -19,6 +20,8 @@ export default function Home (props) {
                     Les call api ont été réaliser via l'api en graphql grâce au client
                     <Link href="https://www.apollographql.com/">Apollo</Link>.
                 </Typography>
+
+                <ContactForm/>
             </Paper>
         </div>
     )
